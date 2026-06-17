@@ -1,0 +1,17 @@
+# --- Внутренние материалы и заметки (не для публичного сайта) ---
+Pictures/
+main goal.md
+reviews.md
+beauty_landing_block_structure.html
+CLAUDE.md
+
+# --- Локальный тулинг разработки ---
+.claude/
+
+# --- OS / редакторы ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
