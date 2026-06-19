@@ -258,10 +258,19 @@
   /* ---------- Reviews ---------- */
   .reviews{background:var(--bg-rose)}
   .reviews-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  .rating-chip{display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-pill);padding:10px 16px}
+  .rating-chip{
+    display:inline-flex;align-items:center;gap:10px;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--r-pill);padding:10px 16px;
+    cursor:pointer;box-shadow:var(--shadow-sm);
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease);
+  }
+  .rating-chip:hover{transform:translateY(-2px);border-color:var(--rose);box-shadow:var(--shadow-md)}
+  .rating-chip:active{transform:translateY(0) scale(.98)}
   .rating-chip .stars{color:#C99A52;letter-spacing:1px}
   .rating-chip b{font-family:"Cormorant Garamond",serif;font-size:20px}
   .rating-chip small{color:var(--muted);font-size:12.5px}
+  .rating-chip .go{color:var(--rose-deep);font-size:17px;display:inline-flex;transition:transform .25s var(--ease)}
+  .rating-chip:hover .go{transform:translate(2px,-2px)}
   .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
   .review{
     margin:0;
@@ -661,9 +670,10 @@
         <div class="section-head" style="margin:0">
           <h2>Что&nbsp;пишут о&nbsp;Brow Best</h2>
         </div>
-        <a class="rating-chip" href="https://2gis.ru/novosibirsk/firm/70000001043848478/tab/reviews" target="_blank" rel="noopener">
+        <a class="rating-chip" href="https://2gis.ru/novosibirsk/firm/70000001043848478/tab/reviews" target="_blank" rel="noopener" aria-label="Рейтинг 5,0, 121 оценка на 2ГИС - открыть отзывы">
           <span class="stars" aria-hidden="true">★★★★★</span>
           <span><b>5,0</b> <small>&middot; 121 оценка на&nbsp;2ГИС</small></span>
+          <i class="ti ti-arrow-up-right go" aria-hidden="true"></i>
         </a>
       </div>
 
