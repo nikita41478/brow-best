@@ -307,10 +307,26 @@
   .form input,.form select{
     font-family:inherit;font-size:15.5px;color:var(--ink);background:var(--bg);
     border:1px solid var(--line);border-radius:var(--r-input);padding:14px 15px;width:100%;
-    transition:border-color .2s var(--ease),box-shadow .2s var(--ease);
+    transition:border-color .2s var(--ease),box-shadow .2s var(--ease),background-color .2s var(--ease);
   }
   .form input::placeholder{color:#A99C8E}
-  .form input:focus,.form select:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px rgba(176,124,132,.18)}
+  /* Hover affordance, same logic as .btn-ghost: border lifts to the accent.
+     Use background-color (not the background shorthand) so the select chevron
+     image set below is not wiped on hover/focus. */
+  .form input:hover,.form select:hover{border-color:var(--rose);background-color:var(--card)}
+  .form input:focus,.form select:focus{outline:none;border-color:var(--rose);background-color:var(--card);box-shadow:0 0 0 3px rgba(176,124,132,.18)}
+
+  /* Select: drop the native chrome and use a brand chevron with room to breathe */
+  .form select{
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    padding-right:44px;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238C5460' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;background-size:18px;
+  }
+  .form select::-ms-expand{display:none}
+  .form select option{background:var(--card);color:var(--ink)}
+  /* Placeholder option reads in the muted tone, like the input placeholders */
+  .form select:required:invalid{color:#A99C8E}
   .form .hint{color:var(--muted);font-size:12.5px;margin-top:4px}
   .form .err{color:#B4434F;font-size:12.5px;display:none}
   .form .field.invalid input,.form .field.invalid select{border-color:#C66}
